@@ -69,6 +69,10 @@ npm run build
 npm run start
 ```
 
+### Continuous integration
+
+`.github/workflows/ci.yml` runs lint, typecheck and a production build on every push to `main` and every pull request. Vercel handles deployment from the same repository.
+
 ---
 
 ## Project structure
