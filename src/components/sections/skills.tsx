@@ -7,8 +7,14 @@ import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Icon } from "@/components/ui/icon";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export function Skills() {
+  const totalSkills = skillCategories.reduce(
+    (total, category) => total + category.skills.length,
+    0,
+  );
+
   return (
     <section id="skills" className="section border-t border-border">
       <div className="container-shell">
@@ -23,14 +29,20 @@ export function Skills() {
                 is there.
               </>
             }
-            description="Tools are only useful in context. These are the technologies I reach for, grouped by the problem they solve — not by a made-up proficiency score."
+            description="The complete stack is visible in one view — switch categories for the reasoning behind each choice, not a made-up proficiency score."
           />
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Tabs defaultValue="backend" className="mt-12">
+          <Tabs defaultValue="all" className="mt-12">
             <div className="-mx-5 overflow-x-auto px-5 pb-2 sm:mx-0 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <TabsList className="w-max">
+                <TabsTrigger value="all">
+                  All skills
+                  <span className="ml-2 text-[9px]">
+                    {String(totalSkills).padStart(2, "0")}
+                  </span>
+                </TabsTrigger>
                 {skillCategories.map((category) => (
                   <TabsTrigger key={category.id} value={category.id}>
                     {category.label}
@@ -41,6 +53,56 @@ export function Skills() {
                 ))}
               </TabsList>
             </div>
+
+            <TabsContent value="all" className="mt-8">
+              <div className="mb-6 flex flex-col justify-between gap-4 border-b border-border pb-5 sm:flex-row sm:items-end">
+                <p className="max-w-2xl text-sm leading-relaxed text-muted">
+                  Every technology in one view, grouped by the problem it
+                  solves. No tab switching required.
+                </p>
+                <Badge variant="outline" className="w-fit shrink-0">
+                  {totalSkills} technologies
+                </Badge>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {skillCategories.map((category) => (
+                  <SpotlightCard
+                    key={category.id}
+                    className="flex h-full flex-col rounded-2xl border border-border bg-surface/40 p-5 transition-colors hover:border-border-strong hover:bg-surface/60"
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <h3 className="text-sm font-medium tracking-tight text-foreground">
+                        {category.label}
+                      </h3>
+                      <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-muted-2">
+                        {String(category.skills.length).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {category.skills.map((skill) => (
+                        <span
+                          key={skill.name}
+                          className={cn(
+                            "rounded-md border px-2 py-1 text-[11px] leading-none",
+                            skill.featured
+                              ? "border-accent/25 bg-accent-soft text-accent"
+                              : "border-border bg-surface-2/50 text-muted",
+                          )}
+                        >
+                          {skill.name}
+                        </span>
+                      ))}
+                    </div>
+                  </SpotlightCard>
+                ))}
+              </div>
+
+              <p className="mt-4 flex items-center gap-2 text-[11px] text-muted-2">
+                <Icon name="arrowRight" className="size-3 shrink-0 text-accent" />
+                Select a category tab for the context behind each technology.
+              </p>
+            </TabsContent>
 
             {skillCategories.map((category) => (
               <TabsContent key={category.id} value={category.id} className="mt-8">

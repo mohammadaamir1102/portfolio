@@ -102,15 +102,6 @@ export function SiteFooter() {
             <p>
               © {year} {siteConfig.name}. All rights reserved.
             </p>
-            <p className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span>Next.js</span>
-              <span className="text-border-strong">/</span>
-              <span>TypeScript</span>
-              <span className="text-border-strong">/</span>
-              <span>Tailwind CSS</span>
-              <span className="text-border-strong">/</span>
-              <span>Riyadh · AST</span>
-            </p>
           </div>
         </div>
       </div>

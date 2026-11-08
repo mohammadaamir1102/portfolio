@@ -20,6 +20,10 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
   const [roleIndex, setRoleIndex] = useState(0);
   const years = getYearsOfExperience();
+  const childTransition = (duration: number) => ({
+    duration: reduceMotion ? 0 : duration,
+    ease,
+  });
 
   useEffect(() => {
     if (reduceMotion) return;
@@ -62,17 +66,22 @@ export function Hero() {
         <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 xl:gap-16">
           <motion.div
             className="min-w-0"
-            initial={reduceMotion ? false : "hidden"}
+            initial="hidden"
             animate="show"
             variants={{
               hidden: {},
-              show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+              show: {
+                transition: {
+                  staggerChildren: reduceMotion ? 0 : 0.08,
+                  delayChildren: reduceMotion ? 0 : 0.05,
+                },
+              },
             }}
           >
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 14 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+                show: { opacity: 1, y: 0, transition: childTransition(0.6) },
               }}
               className="flex flex-wrap items-center gap-3"
             >
@@ -92,7 +101,7 @@ export function Hero() {
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 14 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+                show: { opacity: 1, y: 0, transition: childTransition(0.6) },
               }}
               className="mt-9 flex items-center gap-3"
             >
@@ -120,7 +129,7 @@ export function Hero() {
             <motion.h1
               variants={{
                 hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.8, ease } },
+                show: { opacity: 1, y: 0, transition: childTransition(0.8) },
               }}
               className="h1 mt-4 max-w-2xl"
             >
@@ -133,7 +142,7 @@ export function Hero() {
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 14 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+                show: { opacity: 1, y: 0, transition: childTransition(0.6) },
               }}
               className="mt-6 flex items-center gap-3 font-mono text-xs"
             >
@@ -143,10 +152,13 @@ export function Hero() {
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
                     key={heroRoles[roleIndex]}
-                    initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -10 }}
-                    transition={{ duration: 0.32, ease }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{
+                      duration: reduceMotion ? 0 : 0.32,
+                      ease,
+                    }}
                     className="whitespace-nowrap"
                   >
                     {heroRoles[roleIndex]}
@@ -158,7 +170,7 @@ export function Hero() {
             <motion.p
               variants={{
                 hidden: { opacity: 0, y: 14 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+                show: { opacity: 1, y: 0, transition: childTransition(0.6) },
               }}
               className="mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-muted sm:text-base"
             >
@@ -173,7 +185,7 @@ export function Hero() {
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 14 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+                show: { opacity: 1, y: 0, transition: childTransition(0.6) },
               }}
               className="mt-8 flex flex-wrap items-center gap-3"
             >
@@ -194,7 +206,7 @@ export function Hero() {
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 14 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+                show: { opacity: 1, y: 0, transition: childTransition(0.6) },
               }}
               className="mt-9 flex flex-wrap items-center gap-4"
             >
@@ -226,9 +238,13 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            initial={reduceMotion ? false : { opacity: 0, scale: 0.97, y: 20 }}
+            initial={{ opacity: 0, scale: 0.97, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.18, ease }}
+            transition={{
+              duration: reduceMotion ? 0 : 0.9,
+              delay: reduceMotion ? 0 : 0.18,
+              ease,
+            }}
             className="relative mx-auto hidden w-full max-w-[420px] lg:block lg:max-w-none"
           >
             <div
@@ -243,6 +259,7 @@ export function Hero() {
                     alt={`Portrait of ${siteConfig.name}, Java Backend Engineer`}
                     fill
                     priority
+                    loading="eager"
                     sizes="(max-width: 1024px) 80vw, 420px"
                     className="object-cover object-[center_22%]"
                   />

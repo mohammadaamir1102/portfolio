@@ -10,7 +10,7 @@ The site is intentionally content-first: every claim, role, project and placehol
 
 - **Hero** with a real profile photo, availability status, rotating role labels, résumé download, social links and a compact mobile portrait.
 - **About** with an engineering narrative, working principles and quick facts.
-- **Technical stack** with seven interactive categories and no fake proficiency percentages.
+- **Technical stack** with an all-skills overview plus seven interactive categories, and no fake proficiency percentages.
 - **Selected work** with four enterprise case studies, a featured architecture card and full case-study dialogs (problem, solution, implementation, decisions, challenges, future work).
 - **System design** with five interactive architecture maps: microservices, Kafka event-driven, API gateway, Redis caching and database architecture.
 - **Experience** as a vertical timeline with projects, technology stacks and recognition.
