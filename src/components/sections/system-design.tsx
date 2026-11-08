@@ -46,7 +46,7 @@ export function SystemDesign() {
                 services.
               </>
             }
-            description="Reference topologies from the WMS, credit-data and policy work. Each map shows the happy path, the failure path and the operational decisions that keep the system running."
+            description="Reference topologies from the WMS, credit-data and policy work. Each map starts with a plain-language flow, then shows the failure path and the operational decisions behind it."
           />
         </Reveal>
 
@@ -64,23 +64,62 @@ export function SystemDesign() {
 
         <Reveal delay={0.1}>
           <Tabs defaultValue={architectures[0].id} className="mt-8">
-            <div className="-mx-5 overflow-x-auto px-5 pb-2 sm:mx-0 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <TabsList className="w-max">
-                {architectures.map((architecture, index) => (
-                  <TabsTrigger key={architecture.id} value={architecture.id}>
-                    <span className="mr-2 text-[9px]">0{index + 1}</span>
-                    {architecture.shortTitle}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </div>
+            <TabsList className="grid w-full grid-cols-2 gap-2 rounded-none border-0 bg-transparent p-0 lg:grid-cols-3">
+              {architectures.map((architecture, index) => (
+                <TabsTrigger
+                  key={architecture.id}
+                  value={architecture.id}
+                  variant="card"
+                  className="h-auto"
+                >
+                  <span className="font-mono text-[9px] text-accent">
+                    0{index + 1}
+                  </span>
+                  <span className="flex min-w-0 flex-col items-start gap-1">
+                    <span className="font-sans text-[12px] font-medium normal-case tracking-normal text-foreground">
+                      {architecture.shortTitle}
+                    </span>
+                    <span
+                      className="w-full truncate font-mono text-[8px] uppercase tracking-[0.1em] text-muted-2"
+                      title={architecture.project}
+                    >
+                      {architecture.project}
+                    </span>
+                  </span>
+                </TabsTrigger>
+              ))}
+            </TabsList>
 
             {architectures.map((architecture) => (
               <TabsContent
                 key={architecture.id}
                 value={architecture.id}
-                className="mt-8"
+                className="mt-6"
               >
+                <div className="mb-4 flex flex-wrap items-center gap-2 rounded-2xl border border-border bg-surface/30 px-4 py-3">
+                  <span className="mr-1 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-2">
+                    Flow
+                  </span>
+                  {architecture.flowSteps.map((step, index) => (
+                    <div key={step} className="flex items-center gap-2">
+                      <span className="flex items-center gap-2 rounded-lg border border-border bg-surface-2/50 px-2.5 py-1.5">
+                        <span className="font-mono text-[8px] text-accent">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <span className="text-[11px] text-foreground">
+                          {step}
+                        </span>
+                      </span>
+                      {index < architecture.flowSteps.length - 1 ? (
+                        <Icon
+                          name="arrowRight"
+                          className="size-3 text-muted-2"
+                        />
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+
                 <ArchitectureDiagram architecture={architecture} />
 
                 <div className="mt-4 grid gap-3 lg:grid-cols-[1.05fr_0.95fr]">
@@ -92,9 +131,30 @@ export function SystemDesign() {
                     <h3 className="mt-4 text-xl font-medium tracking-tight">
                       {architecture.title}
                     </h3>
-                    <p className="mt-3 text-[13px] leading-relaxed text-muted">
+                    <p className="mt-2 text-[12px] font-medium text-accent">
+                      {architecture.tagline}
+                    </p>
+                    <p className="mt-2 text-[13px] leading-relaxed text-muted">
                       {architecture.description}
                     </p>
+
+                    <div className="mt-5 rounded-xl border border-accent/15 bg-accent-soft/40 p-4">
+                      <p className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-accent">
+                        <Icon name="sparkles" className="size-3.5" />
+                        Why it matters
+                      </p>
+                      <ul className="mt-2.5 space-y-2">
+                        {architecture.businessValue.map((value) => (
+                          <li
+                            key={value}
+                            className="flex items-start gap-2.5 text-[11.5px] leading-relaxed text-muted"
+                          >
+                            <span className="mt-1.5 size-1 shrink-0 rounded-full bg-accent" />
+                            {value}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
                     <div className="mt-6">
                       <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-muted-2">

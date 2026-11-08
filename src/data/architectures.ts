@@ -10,6 +10,17 @@ export const architectures: Architecture[] = [
       "The warehouse platform is split by business capability. Inbound, inventory, outbound, shipment and billing each own their data; Kafka carries cross-domain events, while the Oracle Fusion ERP boundary is isolated behind an adapter.",
     project: "WMS · Ajex Logistics",
     complexity: "16 components · 6 domain services · sync + async",
+    flowSteps: [
+      "Client & scanners",
+      "Edge & gateway",
+      "WMS services",
+      "Kafka events",
+      "ERP & data",
+    ],
+    businessValue: [
+      "Real-time stock visibility across inbound, outbound and billing.",
+      "Warehouse work continues when ERP or a consumer is unavailable.",
+    ],
     nodes: [
       {
         id: "client",
@@ -278,6 +289,17 @@ export const architectures: Architecture[] = [
       "Domain services publish events through an outbox, not directly from request handlers. Topics are partitioned by aggregate id, consumers are idempotent, and poison messages move through retry topics to a dead-letter queue.",
     project: "WMS · EPIC",
     complexity: "17 components · 4 topics · retry + DLQ",
+    flowSteps: [
+      "Domain transaction",
+      "Outbox",
+      "Kafka topic",
+      "Consumer group",
+      "Retry / DLQ",
+    ],
+    businessValue: [
+      "Services evolve independently without breaking consumers.",
+      "Failed events are recoverable instead of silently lost.",
+    ],
     nodes: [
       {
         id: "order",
@@ -558,6 +580,17 @@ export const architectures: Architecture[] = [
       "Clients never talk to services directly. The gateway validates JWTs with Keycloak, applies per-client rate limits backed by Redis, routes to domain services, and emits consistent telemetry.",
     project: "WMS · TUDF · DRS",
     complexity: "11 components · edge auth · rate limiting",
+    flowSteps: [
+      "Client",
+      "WAF",
+      "Gateway + identity",
+      "Domain APIs",
+      "Telemetry",
+    ],
+    businessValue: [
+      "One place to enforce identity, limits and routing policy.",
+      "A slow downstream cannot exhaust the platform.",
+    ],
     nodes: [
       {
         id: "client",
@@ -748,6 +781,17 @@ export const architectures: Architecture[] = [
       "Hot reads are served from Redis; misses are coalesced before hitting PostgreSQL. Writes update the source of truth and invalidate keys, while CDC keeps read replicas and search indexes fresh.",
     project: "WMS · TUDF",
     complexity: "10 components · cache-aside · single-flight",
+    flowSteps: [
+      "Client",
+      "Service",
+      "Redis",
+      "Primary / replica",
+      "CDC invalidation",
+    ],
+    businessValue: [
+      "Hot reads stay fast without overloading the database.",
+      "The cache never becomes the source of truth.",
+    ],
     nodes: [
       {
         id: "client",
@@ -946,6 +990,17 @@ export const architectures: Architecture[] = [
       "Transactional writes stay on a well-indexed primary. Reporting moves to replicas and an analytics store; high-volume tables are partitioned, with sharding considered only when measurements justify it.",
     project: "TUDF · DRS · WMS",
     complexity: "12 components · partitions · CDC · search",
+    flowSteps: [
+      "Services",
+      "Primary",
+      "CDC stream",
+      "Analytics / Solr",
+      "Backups & archive",
+    ],
+    businessValue: [
+      "Reporting and search do not compete with transactional writes.",
+      "Scale-out decisions follow measurements, not guesswork.",
+    ],
     nodes: [
       {
         id: "order",
@@ -1146,6 +1201,17 @@ export const architectures: Architecture[] = [
       "A warehouse order spans inventory reservation, payment authorization and shipment creation. A saga orchestrator drives local transactions, the outbox guarantees event publication, and compensations unwind partial work when a step fails.",
     project: "WMS · EPIC",
     complexity: "13 components · saga · outbox · compensation",
+    flowSteps: [
+      "Command",
+      "Saga state",
+      "Local steps",
+      "Outbox → Kafka",
+      "Compensation / DLQ",
+    ],
+    businessValue: [
+      "Partial failures do not leave inventory or payments inconsistent.",
+      "Stuck orders are detectable and repairable.",
+    ],
     nodes: [
       {
         id: "api",

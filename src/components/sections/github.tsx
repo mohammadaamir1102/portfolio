@@ -82,7 +82,7 @@ export async function GitHubSection() {
                   </div>
                   <p className="mt-1.5 max-w-xl text-[12px] leading-relaxed text-muted">
                     {profile.bio ??
-                      "Java backend engineer exploring distributed systems, messaging and secure service design."}
+                      "Sr. Java Backend Engineer exploring distributed systems, messaging and secure service design."}
                   </p>
                   <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 font-mono text-[10px] text-muted-2">
                     <span className="flex items-center gap-1.5">

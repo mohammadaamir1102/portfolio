@@ -3,7 +3,7 @@ import { siteConfig } from "@/data/profile";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${siteConfig.name} — Java Backend Engineer`,
+    name: `${siteConfig.name} — Sr. Java Backend Engineer`,
     short_name: siteConfig.shortName,
     description: siteConfig.description,
     start_url: "/",

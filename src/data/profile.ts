@@ -19,10 +19,10 @@ export const siteConfig = {
   name: "Mohammad Aamir",
   shortName: "Aamir",
   initials: "MA",
-  title: "Java Backend Engineer",
+  title: "Sr. Java Backend Engineer",
   headline: "Senior Java Developer · Team Lead · Cloud-Native Systems",
   description:
-    "Java Backend Engineer building scalable, distributed and high-performance systems with Java 21, Spring Boot, Apache Kafka, Redis, Docker and Kubernetes.",
+    "Sr. Java Backend Engineer building scalable, distributed and high-performance systems with Java 21, Spring Boot, Apache Kafka, Redis, Docker and Kubernetes.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mohammad-aamir.vercel.app",
   email: "m.aamirtech1119@gmail.com",
   location: "Riyadh, Saudi Arabia",
@@ -88,11 +88,11 @@ export const heroStack = [
 
 export const profile = {
   summary:
-    "I am a passionate Java Backend Engineer specializing in building scalable, distributed, and high-performance backend systems using Java, Spring Boot, Microservices, and modern cloud-native technologies.",
+    "I am a passionate Sr. Java Backend Engineer specializing in building scalable, distributed, and high-performance backend systems using Java, Spring Boot, Microservices, and modern cloud-native technologies.",
   intro:
     "I build the quiet infrastructure behind everyday operations — warehouse movements, credit reports, insurance policies. Systems where a dropped event or a missing index is not an abstract concern, but someone's workday.",
   about: [
-    "I am a Sr. Java backend engineer with production experience across logistics, financial services and insurance. My work sits where domain complexity meets distributed systems: modelling bounded contexts, designing APIs that other teams can depend on, and making asynchronous flows observable enough to trust.",
+    "I am a Sr. Java Backend Engineer with production experience across logistics, financial services and insurance. My work sits where domain complexity meets distributed systems: modelling bounded contexts, designing APIs that other teams can depend on, and making asynchronous flows observable enough to trust.",
     "At Ajex Logistics I lead the technical design and delivery of an enterprise Warehouse Management System — inbound, inventory, outbound, shipment and billing — integrated with Oracle Fusion ERP and built on Spring Boot microservices with Kafka for asynchronous processing. I work closely with QA, UI, DevOps and business teams from architecture through production support.",
     "Before that, at Saksoft for TransUnion CIBIL, I built credit-data transformation and dispute-resolution systems with PostgreSQL, MSSQL, Apache Solr and LDAP SSO. At MindCraft for Kotak Life, I worked on an insurance policy scrutiny platform using a rule engine, BPM and Kafka. Earlier still, I built pollution-compliance reporting for Maharashtra Pollution Control Board.",
     "What I enjoy most is the part after the diagram: making boundaries hold, handling the failure path, and leaving a system that the next engineer can reason about. I care about clean domain models, honest trade-offs, and operational clarity — logs, metrics and traces that answer questions at 2 a.m.",

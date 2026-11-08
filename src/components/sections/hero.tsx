@@ -175,7 +175,7 @@ export function Hero() {
               className="mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-muted sm:text-base"
             >
               <span className="text-foreground">
-                Java Backend Engineer
+                Sr. Java Backend Engineer
               </span>{" "}
               building scalable systems and reliable distributed applications. I
               design services with Java, Spring Boot, Kafka and cloud-native
@@ -256,7 +256,7 @@ export function Hero() {
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-surface-2">
                   <Image
                     src={siteConfig.avatar}
-                    alt={`Portrait of ${siteConfig.name}, Java Backend Engineer`}
+                    alt={`Portrait of ${siteConfig.name}, Sr. Java Backend Engineer`}
                     fill
                     priority
                     loading="eager"

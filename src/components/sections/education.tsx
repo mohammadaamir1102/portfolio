@@ -18,7 +18,7 @@ export function EducationSection() {
                 <span className="accent-serif text-accent">kept current.</span>
               </>
             }
-            description="Formal education in information technology, reinforced by focused certifications in Java, Kafka and cloud-native microservices."
+            description="Formal education in information technology, reinforced by focused certifications in Java, Kafka and cloud-native microservices, with active learning in AI-assisted backend development."
           />
         </Reveal>
 
@@ -42,8 +42,8 @@ export function EducationSection() {
                       className="absolute bottom-4 left-0 top-4 w-px bg-accent/40"
                       aria-hidden="true"
                     />
-                    <div className="flex flex-wrap items-start justify-between gap-2">
-                      <div>
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0 flex-1">
                         <p className="text-sm font-medium text-foreground">
                           {entry.degree}{" "}
                           <span className="font-normal text-muted">
@@ -54,9 +54,9 @@ export function EducationSection() {
                           {entry.institution} · {entry.location}
                         </p>
                       </div>
-                      <Badge variant="outline" className="shrink-0">
-                        {entry.year}
-                      </Badge>
+                      <span className="shrink-0 font-mono text-[9px] text-muted-2">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
                     </div>
                     {index === 0 ? (
                       <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-2">
@@ -97,7 +97,7 @@ export function EducationSection() {
                       Certifications
                     </h3>
                     <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-2">
-                      Professional credentials
+                      Certifications & learning
                     </p>
                   </div>
                 </div>
@@ -107,26 +107,45 @@ export function EducationSection() {
               </div>
 
               <ul className="relative mt-6 space-y-2.5">
-                {certifications.map((certification, index) => (
-                  <li
-                    key={certification.name}
-                    className="group relative flex items-center gap-3.5 overflow-hidden rounded-2xl border border-border bg-surface/40 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-surface/70"
-                  >
-                    <span
-                      className="absolute inset-y-3 left-0 w-px bg-transparent transition-colors group-hover:bg-accent/60"
-                      aria-hidden="true"
-                    />
-                    <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent-soft text-accent">
-                      <Icon name="badgeCheck" className="size-4" />
-                    </span>
-                    <p className="min-w-0 flex-1 text-[13px] font-medium leading-snug text-foreground">
-                      {certification.name}
-                    </p>
-                    <span className="shrink-0 font-mono text-[9px] text-muted-2">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </li>
-                ))}
+                {certifications.map((certification, index) => {
+                  const isLearning = certification.status === "learning";
+
+                  return (
+                    <li
+                      key={certification.name}
+                      className="group relative flex items-center gap-3.5 overflow-hidden rounded-2xl border border-border bg-surface/40 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-surface/70"
+                    >
+                      <span
+                        className="absolute inset-y-3 left-0 w-px bg-transparent transition-colors group-hover:bg-accent/60"
+                        aria-hidden="true"
+                      />
+                      <span
+                        className={
+                          isLearning
+                            ? "grid size-10 shrink-0 place-items-center rounded-xl border border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-300"
+                            : "grid size-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent-soft text-accent"
+                        }
+                      >
+                        <Icon
+                          name={isLearning ? "sparkles" : "badgeCheck"}
+                          className="size-4"
+                        />
+                      </span>
+                      <p className="min-w-0 flex-1 text-[13px] font-medium leading-snug text-foreground">
+                        {certification.name}
+                      </p>
+                      {isLearning ? (
+                        <span className="shrink-0 rounded-full border border-amber-500/25 bg-amber-500/10 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.12em] text-amber-700 dark:text-amber-300">
+                          Learning
+                        </span>
+                      ) : (
+                        <span className="shrink-0 font-mono text-[9px] text-muted-2">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
 
               <div className="relative mt-auto pt-6">
@@ -135,8 +154,8 @@ export function EducationSection() {
                     name="sparkles"
                     className="mt-0.5 size-3.5 shrink-0 text-accent"
                   />
-                  Continuous learning across Java, event-driven systems and
-                  cloud-native delivery.
+                  Continuous learning across Java, event-driven systems,
+                  cloud-native delivery and AI-assisted backend development.
                 </p>
               </div>
             </div>
@@ -162,12 +181,6 @@ export function EducationSection() {
               </div>
             ))}
           </div>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <p className="mt-5 text-center font-mono text-[9px] uppercase tracking-[0.12em] text-muted-2">
-            Fields marked &ldquo;to be added&rdquo; are placeholders until verified
-          </p>
         </Reveal>
       </div>
     </section>

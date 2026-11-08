@@ -2,7 +2,7 @@
   "name": "mohammad-aamir-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Premium engineering portfolio for Mohammad Aamir, Java Backend Engineer.",
+  "description": "Premium engineering portfolio for Mohammad Aamir, Sr. Java Backend Engineer.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

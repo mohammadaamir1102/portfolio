@@ -33,7 +33,7 @@ const siteUrl = new URL(siteConfig.url);
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: `${siteConfig.name} — Java Backend Engineer`,
+    default: `${siteConfig.name} — Sr. Java Backend Engineer`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   category: "technology",
   keywords: [
     "Mohammad Aamir",
-    "Java Backend Engineer",
+    "Sr. Java Backend Engineer",
     "Java Developer",
     "Spring Boot Developer",
     "Microservices Engineer",
@@ -64,12 +64,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: `${siteConfig.name} — Portfolio`,
-    title: `${siteConfig.name} — Java Backend Engineer`,
+    title: `${siteConfig.name} — Sr. Java Backend Engineer`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Java Backend Engineer`,
+    title: `${siteConfig.name} — Sr. Java Backend Engineer`,
     description: siteConfig.description,
   },
   robots: {
@@ -105,7 +105,7 @@ const personJsonLd = {
   name: siteConfig.name,
   givenName: "Mohammad",
   familyName: "Aamir",
-  jobTitle: "Java Backend Engineer",
+  jobTitle: "Sr. Java Backend Engineer",
   description: siteConfig.description,
   url: siteConfig.url,
   image: `${siteConfig.url}${siteConfig.avatar}`,

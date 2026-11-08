@@ -23,12 +23,17 @@ TabsList.displayName = TabsPrimitive.List.displayName;
 
 const TabsTrigger = React.forwardRef<
   React.ComponentRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> & {
+    variant?: "pill" | "card";
+  }
+>(({ className, variant = "pill", ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 data-[state=active]:bg-accent data-[state=active]:text-ink",
+      "inline-flex items-center justify-center whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 disabled:pointer-events-none disabled:opacity-50",
+      variant === "pill"
+        ? "rounded-full px-4 py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-muted hover:text-foreground data-[state=active]:bg-accent data-[state=active]:text-ink"
+        : "justify-start gap-3 whitespace-normal rounded-xl border border-border bg-surface/40 px-4 py-3 text-left hover:border-border-strong hover:bg-surface/70 data-[state=active]:border-accent/40 data-[state=active]:bg-accent-soft data-[state=active]:text-foreground",
       className,
     )}
     {...props}

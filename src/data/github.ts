@@ -42,7 +42,7 @@ export const fallbackProfile: GitHubProfile = {
   login: githubUsername,
   name: "Mohammad Aamir",
   avatarUrl: "/images/avatar.jpg",
-  bio: "Java backend engineer. Building with Spring Boot, Kafka and cloud-native infrastructure.",
+  bio: "Sr. Java Backend Engineer. Building with Spring Boot, Kafka and cloud-native infrastructure.",
   company: "Ajex Logistics",
   location: "Riyadh, Saudi Arabia",
   blog: "https://youtube.com/@javawithaamir",

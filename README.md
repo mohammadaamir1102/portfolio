@@ -1,8 +1,8 @@
 # Mohammad Aamir — Engineering Portfolio
 
-A premium, production-ready personal portfolio for a Java backend engineer. Built with the Next.js App Router, TypeScript, Tailwind CSS v4, shadcn-style UI primitives, Motion for React and Lucide icons.
+A premium, production-ready personal portfolio for a Sr. Java Backend Engineer. Built with the Next.js App Router, TypeScript, Tailwind CSS v4, shadcn-style UI primitives, Motion for React and Lucide icons.
 
-The site is intentionally content-first: every claim, role, project and placeholder lives in `src/data`, separate from the UI. It is designed to be edited by one person without touching component internals.
+The site is intentionally content-first: every claim, role, project and editable value lives in `src/data`, separate from the UI. It is designed to be edited by one person without touching component internals.
 
 ---
 
@@ -14,7 +14,7 @@ The site is intentionally content-first: every claim, role, project and placehol
 - **Selected work** with four enterprise case studies, a featured architecture card and full case-study dialogs (problem, solution, implementation, decisions, challenges, future work).
 - **System design** with six project-specific reference architectures: WMS microservices, Kafka event flows, API gateway and identity, caching, data platform scale-out, and saga/outbox recovery. Each map includes failure paths, scale notes and trade-offs.
 - **Experience** as a vertical timeline with projects, technology stacks and recognition.
-- **Education & certifications** with education-year placeholders and a clean, credential-only certification list.
+- **Education & certifications** with institution-only education entries, a certification list, and one item explicitly marked as **Learning**.
 - **GitHub showcase** fetched on the server with hourly revalidation, optional token support, rate-limit handling and a curated fallback snapshot.
 - **Contact** with client + server validation, honeypot protection, rate limiting and an honest `mailto:` fallback when email delivery is not configured.
 - **Interactions**: sticky navigation, active section tracking, command palette (`⌘K` / `Ctrl+K`), project dialogs, theme toggle, scroll reveal, back-to-top and reduced-motion support.
@@ -134,7 +134,6 @@ All content is centralized. No component changes are needed for normal updates.
 
 The CV did not contain verified values for every field, so the site marks them instead of inventing them:
 
-- `src/data/education.ts` — graduation years for all three education entries.
 - `.env` — replace `NEXT_PUBLIC_SITE_URL` with your real domain.
 - `public/images/avatar.jpg` — replace with your preferred portrait (recommended 4:5, at least 800 px wide).
 - `public/resume/mohammad-aamir-resume.pdf` — replace with the latest résumé.
@@ -233,7 +232,7 @@ Create an empty repository named `portfolio` at
 ```bash
 git init
 git add .
-git commit -m "feat: premium Java backend engineering portfolio"
+git commit -m "feat: premium Sr. Java Backend Engineering portfolio"
 git branch -M main
 git remote add origin https://github.com/mohammadaamir1102/portfolio.git
 git push -u origin main

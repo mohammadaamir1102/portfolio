@@ -10,15 +10,15 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Portfolio — Agent Guide
 
-This is the personal engineering portfolio of **Mohammad Aamir**, a Java backend engineer based in Riyadh, Saudi Arabia. It is a production Next.js application, not a template. Preserve its visual language, content integrity and structure.
+This is the personal engineering portfolio of **Mohammad Aamir**, a Sr. Java Backend Engineer based in Riyadh, Saudi Arabia. It is a production Next.js application, not a template. Preserve its visual language, content integrity and structure.
 
 ## Non-negotiable content rules
 
 1. **Never invent professional facts.** Do not add employers, job titles, dates, certifications, awards, metrics, production results, customer names or project achievements that are not present in `src/data` or explicitly supplied by the owner.
 2. **Do not add fake links.** Enterprise project source is private. Do not invent GitHub repositories, live demos or credential URLs. If a link is unknown, omit it or leave a clearly marked placeholder.
 3. **Keep enterprise work confidential.** Project case studies describe architecture and engineering decisions only. Never add customer data, internal topology details, proprietary metrics or screenshots.
-4. **Use placeholders rather than guesses.** The remaining placeholder is graduation years in `src/data/education.ts` (`"Year to be added"`). The site URL is configured through `NEXT_PUBLIC_SITE_URL`.
-5. **Certifications are names only.** Do not add issuers, dates or credential links unless the owner provides verified values. The UI intentionally renders only certificate names.
+4. **Use placeholders rather than guesses.** No unverified dates or placeholder labels are rendered. Education entries are institution/degree only. The site URL is configured through `NEXT_PUBLIC_SITE_URL`.
+5. **Certifications are names only.** Do not add issuers, dates or credential links unless the owner provides verified values. The LangChain4J entry is explicitly marked **Learning**; never present it as a completed certification.
 6. **No proficiency percentages or "expert" ratings.** Skills are described by purpose, not scores.
 7. **The owner's public identity is:**
    - Name: Mohammad Aamir
@@ -137,6 +137,7 @@ Each `Architecture` must include:
 {
   id, title, shortTitle, tagline, description,
   project, complexity,
+  flowSteps, businessValue,
   nodes, edges,
   decisions, failurePaths, scaleNotes, tradeoffs
 }
@@ -148,16 +149,19 @@ Diagram rules:
 - Node tones: `accent`, `cool`, `neutral`, `ghost`, `danger`.
 - Use `failure: true` on failure-path edges. They render red dashed. Do not use failure styling for normal async flow.
 - Use `animated: true` for the primary happy-path flow. Keep labels short.
+- The architecture selector is a responsive card grid (2 columns mobile, 3 desktop), not a generic tab rail. Keep the index, short title and project mapping visible.
+- Every architecture must have a plain-language `flowSteps` strip and a `businessValue` block ("Why it matters") for HR readers.
 - The diagram is full width at desktop and horizontally scrollable on mobile (`min-w-[680px] md:min-w-0`). Do not force the whole diagram into a narrow side panel.
-- The info area below the diagram is two columns: design notes/trade-offs on the left; failure paths and scale/operations on the right.
+- The info area below the diagram is two columns: tagline, description, business value and design notes on the left; failure paths, scale/operations and trade-offs on the right.
 - Every diagram must have a real project mapping and a complexity line. Do not add generic CRUD diagrams.
 - Prefer patterns grounded in the owner's work: Spring Boot, Kafka, Keycloak/JWT, API gateway, Eureka, Redis, PostgreSQL/MySQL/Oracle/MSSQL, Solr, CDC, outbox, saga, DLQ, observability.
 - Do not claim a pattern was implemented if it is presented as a future or reference pattern. The section footer says "Reference architectures"; keep that honest.
 
 ## Certifications and education
 
-- Certifications are intentionally a clean list of names only. Do not add issuer/date/credential placeholder rows.
-- Education years remain placeholders until verified.
+- Certifications show certificate names only. Do not add issuer/date/credential placeholder rows.
+- The LangChain4J certification is intentionally marked **Learning** via `status: "learning"`. Keep that distinction; it is not a completed credential.
+- Education entries are institution/degree only. Do not add unverified years or placeholder labels.
 - Awards are shown as title + "Recognition"; do not re-add unverified issuer/date fields.
 - Keep the education and certification cards equal height and visually balanced.
 

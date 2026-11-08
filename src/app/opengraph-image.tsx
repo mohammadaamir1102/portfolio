@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/data/profile";
 
-export const alt = `${siteConfig.name} — Java Backend Engineer`;
+export const alt = `${siteConfig.name} — Sr. Java Backend Engineer`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -78,7 +78,7 @@ export default async function OpenGraphImage() {
                 color: "#9aa1ab",
               }}
             >
-              Java Backend Engineer
+              Sr. Java Backend Engineer
             </div>
           </div>
         </div>

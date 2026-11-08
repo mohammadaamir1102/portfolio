@@ -137,7 +137,6 @@ export type EducationEntry = {
   field: string;
   institution: string;
   location: string;
-  year: string;
   note?: string;
 };
 
@@ -146,6 +145,7 @@ export type Certification = {
   issuer?: string;
   date?: string;
   credentialUrl?: string;
+  status?: "certified" | "learning";
 };
 
 export type DiagramTone =
@@ -184,6 +184,8 @@ export type Architecture = {
   description: string;
   project: string;
   complexity: string;
+  flowSteps: string[];
+  businessValue: string[];
   nodes: DiagramNode[];
   edges: DiagramEdge[];
   decisions: string[];

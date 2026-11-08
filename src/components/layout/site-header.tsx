@@ -74,7 +74,7 @@ export function SiteHeader() {
                     {siteConfig.name}
                   </span>
                   <span className="mt-1 hidden font-mono text-[9px] uppercase tracking-[0.16em] text-muted-2 sm:block">
-                    Java Backend Engineer
+                    Sr. Java Backend Engineer
                   </span>
                 </span>
               </a>
