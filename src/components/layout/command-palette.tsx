@@ -81,7 +81,7 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
     const actions: Item[] = [
       {
         id: "resume",
-        label: "Download résumé",
+        label: "Download Resume",
         hint: "PDF",
         group: "Actions",
         icon: "download",

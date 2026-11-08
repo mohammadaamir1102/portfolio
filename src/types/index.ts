@@ -143,12 +143,17 @@ export type EducationEntry = {
 
 export type Certification = {
   name: string;
-  issuer: string;
-  date: string;
+  issuer?: string;
+  date?: string;
   credentialUrl?: string;
 };
 
-export type DiagramTone = "accent" | "cool" | "neutral" | "ghost";
+export type DiagramTone =
+  | "accent"
+  | "cool"
+  | "neutral"
+  | "ghost"
+  | "danger";
 
 export type DiagramNode = {
   id: string;
@@ -165,6 +170,7 @@ export type DiagramEdge = {
   d: string;
   animated?: boolean;
   dashed?: boolean;
+  failure?: boolean;
   label?: string;
   labelX?: number;
   labelY?: number;
@@ -176,9 +182,13 @@ export type Architecture = {
   shortTitle: string;
   tagline: string;
   description: string;
+  project: string;
+  complexity: string;
   nodes: DiagramNode[];
   edges: DiagramEdge[];
   decisions: string[];
+  failurePaths: string[];
+  scaleNotes: string[];
   tradeoffs: string[];
 };
 

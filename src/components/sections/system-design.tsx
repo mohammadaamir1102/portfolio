@@ -46,19 +46,29 @@ export function SystemDesign() {
                 services.
               </>
             }
-            description="Architecture is a series of trade-offs made explicit. These interactive maps show the patterns I work with — the flow, the boundaries, and the parts that are allowed to fail."
+            description="Reference topologies from the WMS, credit-data and policy work. Each map shows the happy path, the failure path and the operational decisions that keep the system running."
           />
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Tabs defaultValue={architectures[0].id} className="mt-12">
+          <div className="mt-8 flex flex-wrap items-center gap-2">
+            <Badge variant="accent" className="gap-1.5">
+              <Icon name="network" className="size-3" />
+              {architectures.length} reference architectures
+            </Badge>
+            <Badge variant="outline">Sync + async boundaries</Badge>
+            <Badge variant="outline">Failure-aware</Badge>
+            <Badge variant="outline">Trade-off driven</Badge>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <Tabs defaultValue={architectures[0].id} className="mt-8">
             <div className="-mx-5 overflow-x-auto px-5 pb-2 sm:mx-0 sm:px-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <TabsList className="w-max">
                 {architectures.map((architecture, index) => (
                   <TabsTrigger key={architecture.id} value={architecture.id}>
-                    <span className="mr-2 text-[9px]">
-                      0{index + 1}
-                    </span>
+                    <span className="mr-2 text-[9px]">0{index + 1}</span>
                     {architecture.shortTitle}
                   </TabsTrigger>
                 ))}
@@ -71,13 +81,14 @@ export function SystemDesign() {
                 value={architecture.id}
                 className="mt-8"
               >
-                <div className="grid gap-4 lg:grid-cols-[1.45fr_1fr]">
-                  <ArchitectureDiagram architecture={architecture} />
+                <ArchitectureDiagram architecture={architecture} />
 
+                <div className="mt-4 grid gap-3 lg:grid-cols-[1.05fr_0.95fr]">
                   <div className="flex flex-col rounded-2xl border border-border bg-surface/30 p-5 sm:p-6">
-                    <Badge variant="accent" className="w-fit">
-                      Pattern
-                    </Badge>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Badge variant="accent">{architecture.project}</Badge>
+                      <Badge variant="outline">{architecture.complexity}</Badge>
+                    </div>
                     <h3 className="mt-4 text-xl font-medium tracking-tight">
                       {architecture.title}
                     </h3>
@@ -101,24 +112,61 @@ export function SystemDesign() {
                         ))}
                       </ul>
                     </div>
+                  </div>
 
-                    <div className="mt-auto pt-6">
-                      <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-4">
-                        <p className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300/80">
-                          <Icon name="shield" className="size-3" />
-                          Trade-offs
-                        </p>
-                        <ul className="mt-2.5 space-y-2">
-                          {architecture.tradeoffs.map((tradeoff) => (
-                            <li
-                              key={tradeoff}
-                              className="text-[11.5px] leading-relaxed text-muted"
-                            >
-                              {tradeoff}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  <div className="grid content-start gap-3">
+                    <div className="rounded-2xl border border-red-500/20 bg-red-500/5 p-5">
+                      <p className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-red-700 dark:text-red-300/80">
+                        <Icon name="alertCircle" className="size-3.5" />
+                        Failure paths
+                      </p>
+                      <ul className="mt-3 space-y-2.5">
+                        {architecture.failurePaths.map((failure) => (
+                          <li
+                            key={failure}
+                            className="flex items-start gap-2.5 text-[11.5px] leading-relaxed text-muted"
+                          >
+                            <span className="mt-1.5 size-1 shrink-0 rounded-full bg-[var(--danger)]" />
+                            {failure}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="rounded-2xl border border-border bg-surface/30 p-5">
+                      <p className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-muted-2">
+                        <Icon name="activity" className="size-3.5 text-accent" />
+                        Scale & operations
+                      </p>
+                      <ul className="mt-3 space-y-2.5">
+                        {architecture.scaleNotes.map((note) => (
+                          <li
+                            key={note}
+                            className="flex items-start gap-2.5 text-[11.5px] leading-relaxed text-muted"
+                          >
+                            <span className="mt-1.5 size-1 shrink-0 rounded-full bg-accent/70" />
+                            {note}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-5">
+                      <p className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300/80">
+                        <Icon name="shield" className="size-3.5" />
+                        Trade-offs
+                      </p>
+                      <ul className="mt-3 space-y-2.5">
+                        {architecture.tradeoffs.map((tradeoff) => (
+                          <li
+                            key={tradeoff}
+                            className="flex items-start gap-2.5 text-[11.5px] leading-relaxed text-muted"
+                          >
+                            <span className="mt-1.5 size-1 shrink-0 rounded-full bg-amber-500/70" />
+                            {tradeoff}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -148,8 +196,8 @@ export function SystemDesign() {
 
         <Reveal delay={0.1}>
           <p className="mt-6 text-center font-mono text-[9px] uppercase tracking-[0.14em] text-muted-2">
-            Conceptual diagrams · patterns applied in production · no proprietary
-            topology disclosed
+            Reference architectures · patterns applied in production · no
+            proprietary topology disclosed
           </p>
         </Reveal>
       </div>

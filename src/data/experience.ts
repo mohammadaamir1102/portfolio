@@ -56,7 +56,7 @@ export const experiences: Experience[] = [
   {
     company: "Saksoft Limited",
     client: "TransUnion CIBIL",
-    role: "Sr. Developer",
+    role: "Senior Java Microservices Developer",
     period: "Sep 2023 — Dec 2024",
     start: "2023-09",
     end: "2024-12",
@@ -111,7 +111,7 @@ export const experiences: Experience[] = [
   {
     company: "MindCraft Software Pvt. Ltd.",
     client: "Kotak Life Insurance",
-    role: "Developer",
+    role: "Java Microservices Developer",
     period: "Feb 2022 — Sep 2023",
     start: "2022-02",
     end: "2023-09",

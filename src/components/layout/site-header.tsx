@@ -191,7 +191,7 @@ export function SiteHeader() {
                             onClick={() => setMenuOpen(false)}
                           >
                             <Icon name="download" className="size-4" />
-                            Download résumé
+                            Download Resume
                           </a>
                         </Button>
 

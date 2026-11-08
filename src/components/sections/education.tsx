@@ -24,7 +24,7 @@ export function EducationSection() {
 
         <div className="mt-12 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal>
-            <div className="rounded-3xl border border-border bg-surface/30 p-6 sm:p-7">
+            <div className="flex h-full flex-col rounded-3xl border border-border bg-surface/30 p-6 sm:p-7">
               <div className="mb-6 flex items-center gap-3">
                 <span className="grid size-9 place-items-center rounded-xl border border-accent/25 bg-accent-soft text-accent">
                   <Icon name="graduation" className="size-4" />
@@ -67,7 +67,7 @@ export function EducationSection() {
                 ))}
               </ol>
 
-              <div className="mt-6 flex flex-wrap items-center gap-2 border-t border-border pt-5">
+              <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-border pt-5">
                 <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-muted-2">
                   Languages
                 </span>
@@ -81,53 +81,64 @@ export function EducationSection() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="rounded-3xl border border-border bg-surface/30 p-6 sm:p-7">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="grid size-9 place-items-center rounded-xl border border-accent/25 bg-accent-soft text-accent">
-                  <Icon name="badgeCheck" className="size-4" />
-                </span>
-                <h3 className="text-sm font-medium tracking-tight">
-                  Certifications
-                </h3>
+            <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface/30 p-6 sm:p-7">
+              <div
+                className="pointer-events-none absolute -right-20 -top-20 size-56 rounded-full bg-[radial-gradient(circle_at_center,var(--glow),transparent_65%)] blur-2xl"
+                aria-hidden="true"
+              />
+
+              <div className="relative flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <span className="grid size-9 place-items-center rounded-xl border border-accent/25 bg-accent-soft text-accent">
+                    <Icon name="badgeCheck" className="size-4" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-medium tracking-tight">
+                      Certifications
+                    </h3>
+                    <p className="mt-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-muted-2">
+                      Professional credentials
+                    </p>
+                  </div>
+                </div>
+                <Badge variant="outline" className="shrink-0">
+                  {certifications.length}
+                </Badge>
               </div>
 
-              <ul className="space-y-3">
-                {certifications.map((certification) => (
+              <ul className="relative mt-6 space-y-2.5">
+                {certifications.map((certification, index) => (
                   <li
                     key={certification.name}
-                    className="rounded-2xl border border-border bg-surface/40 p-4"
+                    className="group relative flex items-center gap-3.5 overflow-hidden rounded-2xl border border-border bg-surface/40 p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:bg-surface/70"
                   >
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className="text-[13px] font-medium leading-snug text-foreground">
-                          {certification.name}
-                        </p>
-                        <p className="mt-1 text-[11px] text-muted">
-                          {certification.issuer}
-                        </p>
-                      </div>
-                      <span className="shrink-0 font-mono text-[9px] text-muted-2">
-                        {certification.date}
-                      </span>
-                    </div>
-                    {certification.credentialUrl ? (
-                      <a
-                        href={certification.credentialUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-1 font-mono text-[9px] uppercase tracking-[0.1em] text-accent"
-                      >
-                        View credential
-                        <Icon name="external" className="size-3" />
-                      </a>
-                    ) : (
-                      <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.1em] text-muted-2">
-                        Credential link to be added
-                      </p>
-                    )}
+                    <span
+                      className="absolute inset-y-3 left-0 w-px bg-transparent transition-colors group-hover:bg-accent/60"
+                      aria-hidden="true"
+                    />
+                    <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent-soft text-accent">
+                      <Icon name="badgeCheck" className="size-4" />
+                    </span>
+                    <p className="min-w-0 flex-1 text-[13px] font-medium leading-snug text-foreground">
+                      {certification.name}
+                    </p>
+                    <span className="shrink-0 font-mono text-[9px] text-muted-2">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </li>
                 ))}
               </ul>
+
+              <div className="relative mt-auto pt-6">
+                <p className="flex items-start gap-2 border-t border-border pt-4 text-[11px] leading-relaxed text-muted-2">
+                  <Icon
+                    name="sparkles"
+                    className="mt-0.5 size-3.5 shrink-0 text-accent"
+                  />
+                  Continuous learning across Java, event-driven systems and
+                  cloud-native delivery.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -145,7 +156,7 @@ export function EducationSection() {
                 <div>
                   <p className="text-[13px] font-medium">{award.title}</p>
                   <p className="mt-0.5 text-[11px] text-muted">
-                    {award.context} · {award.issuer} · {award.year}
+                    {award.context}
                   </p>
                 </div>
               </div>

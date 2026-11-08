@@ -12,9 +12,9 @@ The site is intentionally content-first: every claim, role, project and placehol
 - **About** with an engineering narrative, working principles and quick facts.
 - **Technical stack** with an all-skills overview plus seven interactive categories, and no fake proficiency percentages.
 - **Selected work** with four enterprise case studies, a featured architecture card and full case-study dialogs (problem, solution, implementation, decisions, challenges, future work).
-- **System design** with five interactive architecture maps: microservices, Kafka event-driven, API gateway, Redis caching and database architecture.
+- **System design** with six project-specific reference architectures: WMS microservices, Kafka event flows, API gateway and identity, caching, data platform scale-out, and saga/outbox recovery. Each map includes failure paths, scale notes and trade-offs.
 - **Experience** as a vertical timeline with projects, technology stacks and recognition.
-- **Education & certifications** with clearly marked placeholders for unverified fields.
+- **Education & certifications** with education-year placeholders and a clean, credential-only certification list.
 - **GitHub showcase** fetched on the server with hourly revalidation, optional token support, rate-limit handling and a curated fallback snapshot.
 - **Contact** with client + server validation, honeypot protection, rate limiting and an honest `mailto:` fallback when email delivery is not configured.
 - **Interactions**: sticky navigation, active section tracking, command palette (`⌘K` / `Ctrl+K`), project dialogs, theme toggle, scroll reveal, back-to-top and reduced-motion support.
@@ -59,6 +59,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `npm run start` | Serve the production build |
 | `npm run lint` | Run ESLint |
 | `npm run typecheck` | Run TypeScript with `--noEmit` |
+| `npm run verify` | Lint, typecheck and production build |
 
 A production smoke test:
 
@@ -134,8 +135,6 @@ All content is centralized. No component changes are needed for normal updates.
 The CV did not contain verified values for every field, so the site marks them instead of inventing them:
 
 - `src/data/education.ts` — graduation years for all three education entries.
-- `src/data/education.ts` — certification issuers, completion dates and credential URLs.
-- `src/data/education.ts` — award issuers and dates.
 - `.env` — replace `NEXT_PUBLIC_SITE_URL` with your real domain.
 - `public/images/avatar.jpg` — replace with your preferred portrait (recommended 4:5, at least 800 px wide).
 - `public/resume/mohammad-aamir-resume.pdf` — replace with the latest résumé.

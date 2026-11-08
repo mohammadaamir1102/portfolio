@@ -56,7 +56,7 @@ export function ArchitectureDiagram({
           tabIndex={0}
         >
           <div
-            className="relative min-w-[760px] bg-[radial-gradient(circle_at_1px_1px,var(--grid)_1px,transparent_0)] [background-size:22px_22px]"
+            className="relative min-w-[680px] bg-[radial-gradient(circle_at_1px_1px,var(--grid)_1px,transparent_0)] [background-size:22px_22px] md:min-w-0"
             style={{ aspectRatio: "2 / 1" }}
           >
             <svg
@@ -84,12 +84,17 @@ export function ArchitectureDiagram({
                   <path
                     d={edge.d}
                     fill="none"
-                    stroke="var(--border-strong)"
-                    strokeWidth="1.3"
-                    strokeDasharray={edge.dashed ? "4 6" : undefined}
+                    stroke={
+                      edge.failure ? "var(--danger)" : "var(--border-strong)"
+                    }
+                    strokeWidth={edge.failure ? "1.6" : "1.3"}
+                    strokeDasharray={
+                      edge.dashed || edge.failure ? "4 6" : undefined
+                    }
                     markerEnd={`url(#${markerId})`}
+                    opacity={edge.failure ? "0.85" : undefined}
                   />
-                  {edge.animated ? (
+                  {edge.animated && !edge.failure ? (
                     <path
                       d={edge.d}
                       fill="none"
@@ -103,7 +108,7 @@ export function ArchitectureDiagram({
                     <text
                       x={edge.labelX}
                       y={edge.labelY}
-                      fill="var(--muted-2)"
+                      fill={edge.failure ? "var(--danger)" : "var(--muted-2)"}
                       fontSize="9"
                       fontFamily="var(--font-mono)"
                       letterSpacing="0.4"
@@ -136,6 +141,11 @@ export function ArchitectureDiagram({
         <span className="flex items-center gap-1.5">
           <span className="size-1.5 rounded-full bg-border-strong" /> Data / support
         </span>
+        {architecture.edges.some((edge) => edge.failure) ? (
+          <span className="flex items-center gap-1.5">
+            <span className="size-1.5 rounded-full bg-[var(--danger)]" /> Failure path
+          </span>
+        ) : null}
         <span className="ml-auto hidden items-center gap-1.5 sm:flex">
           <Icon name="activity" className="size-3" /> Animated lines indicate flow
         </span>

@@ -192,7 +192,7 @@ export function Hero() {
               <Button asChild size="lg">
                 <a href={siteConfig.resumePath} download>
                   <Icon name="download" className="size-4" />
-                  Download résumé
+                  Download Resume
                 </a>
               </Button>
               <Button asChild variant="secondary" size="lg">

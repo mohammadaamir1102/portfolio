@@ -11,13 +11,20 @@ export const education: EducationEntry[] = [
   {
     degree: "B.Sc",
     field: "Information Technology",
+    institution: "Mumbai University",
+    location: "Mumbai, India",
+    year: "Year to be added",
+  },
+  {
+    degree: "H.S.C",
+    field: "Higher Secondary",
     institution: "GIC",
     location: "Basti, India",
     year: "Year to be added",
   },
   {
-    degree: "Higher Secondary & Secondary",
-    field: "H.S.C · S.S.C",
+    degree: "S.S.C",
+    field: "Secondary",
     institution: "GIC",
     location: "Basti, India",
     year: "Year to be added",
@@ -25,40 +32,19 @@ export const education: EducationEntry[] = [
 ];
 
 export const certifications: Certification[] = [
-  {
-    name: "Oracle Java Foundation",
-    issuer: "Oracle",
-    date: "Date to be added",
-  },
-  {
-    name: "Apache Kafka Using Java Spring Boot",
-    issuer: "Issuer to be added",
-    date: "Date to be added",
-  },
-  {
-    name: "Microservices with Spring Boot, Docker & Kubernetes",
-    issuer: "Issuer to be added",
-    date: "Date to be added",
-  },
-  {
-    name: "Learning AI — Spring Boot with LangChain4J",
-    issuer: "Issuer to be added",
-    date: "Date to be added",
-  },
+  { name: "Oracle Java Foundation" },
+  { name: "Apache Kafka Using Java Spring Boot" },
+  { name: "Microservices with Spring Boot, Docker & Kubernetes" },
 ];
 
 export const awards = [
   {
     title: "Promising Newcomer Award",
     context: "Recognition",
-    issuer: "Issuer to be added",
-    year: "Date to be added",
   },
   {
     title: "Team Award",
     context: "Recognition",
-    issuer: "Issuer to be added",
-    year: "Date to be added",
   },
 ];
 

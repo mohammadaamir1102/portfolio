@@ -45,6 +45,7 @@
   --grid: rgba(255, 255, 255, 0.035);
   --glow: rgba(229, 181, 126, 0.18);
   --cool-glow: rgba(110, 130, 255, 0.12);
+  --danger: #f87171;
 }
 
 .light {
@@ -66,6 +67,7 @@
   --grid: rgba(21, 23, 27, 0.045);
   --glow: rgba(180, 120, 50, 0.14);
   --cool-glow: rgba(70, 88, 200, 0.08);
+  --danger: #b91c1c;
 }
 
 @layer base {
@@ -306,6 +308,11 @@
   .diagram-node-ghost {
     border-color: var(--border);
     background: color-mix(in srgb, var(--surface-2) 40%, transparent);
+  }
+
+  .diagram-node-danger {
+    border-color: color-mix(in srgb, var(--danger) 35%, transparent);
+    background: color-mix(in srgb, var(--danger) 8%, var(--surface));
   }
 
   .marquee-track {
