@@ -122,7 +122,7 @@ export function EducationSection() {
                       <span
                         className={
                           isLearning
-                            ? "grid size-10 shrink-0 place-items-center rounded-xl border border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-300"
+                            ? "grid size-10 shrink-0 place-items-center rounded-xl border border-amber-500/25 bg-amber-500/10 text-amber-800 dark:text-amber-300"
                             : "grid size-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent-soft text-accent"
                         }
                       >
@@ -135,7 +135,7 @@ export function EducationSection() {
                         {certification.name}
                       </p>
                       {isLearning ? (
-                        <span className="shrink-0 rounded-full border border-amber-500/25 bg-amber-500/10 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.12em] text-amber-700 dark:text-amber-300">
+                        <span className="shrink-0 rounded-full border border-amber-500/25 bg-amber-500/10 px-2 py-1 font-mono text-[8px] uppercase tracking-[0.12em] text-amber-800 dark:text-amber-300">
                           Learning
                         </span>
                       ) : (

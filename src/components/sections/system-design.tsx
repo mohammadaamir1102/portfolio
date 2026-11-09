@@ -80,7 +80,7 @@ export function SystemDesign() {
                       {architecture.shortTitle}
                     </span>
                     <span
-                      className="w-full truncate font-mono text-[8px] uppercase tracking-[0.1em] text-muted-2"
+                      className="w-full truncate font-mono text-[8px] uppercase tracking-[0.1em] text-muted"
                       title={architecture.project}
                     >
                       {architecture.project}
@@ -212,7 +212,7 @@ export function SystemDesign() {
                     </div>
 
                     <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-5">
-                      <p className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-amber-700 dark:text-amber-300/80">
+                      <p className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.16em] text-amber-800 dark:text-amber-300/80">
                         <Icon name="shield" className="size-3.5" />
                         Trade-offs
                       </p>

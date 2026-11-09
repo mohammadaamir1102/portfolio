@@ -15,7 +15,7 @@ export function ThemeToggle({ className }: { className?: string }) {
     () => false,
   );
 
-  const isDark = mounted ? resolvedTheme !== "light" : true;
+  const isDark = mounted ? resolvedTheme === "dark" : false;
   const label = isDark ? "Switch to light theme" : "Switch to dark theme";
 
   return (

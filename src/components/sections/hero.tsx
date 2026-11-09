@@ -85,7 +85,7 @@ export function Hero() {
               }}
               className="flex flex-wrap items-center gap-3"
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1.5 text-[11px] font-medium text-emerald-700 dark:text-emerald-300">
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1.5 text-[11px] font-medium text-emerald-800 dark:text-emerald-300">
                 <span className="relative flex size-1.5">
                   <span className="absolute inline-flex size-full animate-pulse-soft rounded-full bg-emerald-400 opacity-80" />
                   <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />

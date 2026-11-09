@@ -33,7 +33,7 @@ The site is intentionally content-first: every claim, role, project and editable
 | Primitives | shadcn-style components on Radix UI |
 | Motion | Motion for React (`motion`) |
 | Icons | Lucide React + custom brand SVGs |
-| Theme | `next-themes` (dark by default) |
+| Theme | `next-themes` (light by default, dark toggle) |
 | Email | Resend HTTP API (optional) |
 | Hosting | Vercel |
 
@@ -289,7 +289,7 @@ The project needs no custom build command. Vercel runs `npm run build` and serve
 - `prefers-reduced-motion` disables the marquee, floating chips, animated diagram flow, aurora drift and reveal transitions.
 - Dialogs use Radix focus management and `Escape` to close.
 - Form fields have labels, `aria-invalid`, `aria-describedby` and `role="alert"` errors.
-- Theme toggle has a dynamic accessible label; the site defaults to dark and respects an explicit user choice.
+- Theme toggle has a dynamic accessible label; the site defaults to light and respects an explicit user choice.
 
 ---
 

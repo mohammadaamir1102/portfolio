@@ -164,7 +164,7 @@ export function Contact({ emailConfigured }: { emailConfigured: boolean }) {
                   <span className="absolute inline-flex size-full animate-pulse-soft rounded-full bg-emerald-400" />
                   <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
                 </span>
-                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-300">
+                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-800 dark:text-emerald-300">
                   {siteConfig.availability}
                 </p>
               </div>

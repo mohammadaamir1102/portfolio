@@ -92,7 +92,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  colorScheme: "dark light",
+  colorScheme: "light dark",
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#07080a" },
     { media: "(prefers-color-scheme: light)", color: "#f6f4ef" },
@@ -148,7 +148,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="dark"
+      className="light"
       suppressHydrationWarning
     >
       <body

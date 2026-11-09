@@ -47,7 +47,7 @@ The owner is the technical lead for the Warehouse Management System at Ajex. Thi
 - Tailwind CSS v4, shadcn-style Radix primitives
 - Motion for React (`motion/react`)
 - Lucide React plus custom brand SVGs in `src/components/ui/icon.tsx`
-- `next-themes` with dark default
+- `next-themes` with light default; dark theme available via the toggle
 - No additional heavy dependencies without a clear need
 
 ```bash
@@ -90,9 +90,9 @@ All human-readable portfolio content belongs in `src/data`. Do not hardcode cont
 
 ## Design system
 
-The visual direction is premium, dark, editorial and technical. Keep it restrained.
+The visual direction is premium, editorial and technical, with a light default and a dark theme available. Keep it restrained.
 
-- Background: near-black `#07080a`
+- Background: warm off-white `#f6f4ef` (light default) / near-black `#07080a` (dark theme)
 - Accent: warm copper `#e5b57e` (light theme `#8f5a1c`)
 - Text: warm white / muted slate
 - Thin borders, soft shadows, selective glassmorphism
